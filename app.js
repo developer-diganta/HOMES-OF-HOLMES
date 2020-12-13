@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://admin-diganta:Ibmc1uNnp12M9z3Z@cluster0.mlb5l.mongodb.net/holmes?retryWrites=true&w=majority/",{useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:27017/holmes",{useNewUrlParser: true});
 
 const detectiveschema = new mongoose.Schema({
   name:String,
