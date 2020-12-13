@@ -1,0 +1,99 @@
+
+
+body{
+font-family: 'Permanent Marker', cursive;
+height:100%;
+margin:0;
+padding:0;
+background:url("detec.png"),#6a8ea1;
+
+background-repeat: no-repeat;
+background-attachment: fixed;
+/* background-position:bottom right,bottom left; */
+background-size:35%,cover;
+background-position: left;
+}
+
+.hid{
+  display: none;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(173,239,209,0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+
+  .custom-toggler.navbar-toggler {
+    border-color:#ADEFD1FF;
+  }
+
+  .nav-color{
+      color:#ADEFD1FF;
+      opacity:0.7;
+ }
+ .nav-color:hover{
+     opacity:1;
+ }
+ .activ{
+    opacity:1;
+ }
+ .navbar-brand-color{
+     color:#ADEFD1FF;
+     font-size: 3rem;
+ }
+
+ nav{
+    font-family: 'Permanent Marker', cursive;
+ }
+
+
+.content{
+
+
+    text-align: center;
+}
+
+.navv{
+ background-color:#bb8d6b ;
+}
+
+
+button{
+  margin:2%;
+  background-color:#17161b;
+  font-size:20px;
+  border:inset #bb8d6b ;
+  outline: none;
+}
+
+button:hover{
+  opacity:0.6;
+}
+
+.box{
+  margin:2px;
+  box-shadow: 1px 1px 1px 1px rgba(187,141,107,0.5);
+}
+
+input{
+  text-align:center;
+}
+
+
+.imgg{
+  /* margin:25px; */
+  /* display:block; */
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+  /* height:250px;
+  width:250px; */
+  /* padding-left:25px;
+  padding-right:25px; */
+  cursor: pointer;
+  width:40%;
+}
+
+
+.imgg:active{
+  opacity:0.6;
+}

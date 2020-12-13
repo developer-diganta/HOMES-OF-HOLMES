@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>HOMES OF HOLMES</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styled2.css">
+
+  </head>
+  <body>
+    <div class="container-fluid navv">
+
+
+        <div class="container">
+
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand" href="#"><span class="navbar-brand-color"><img src="HOMES.png" style="width:100px;"/></span></a>
+          <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto" style="padding-top:20px;">
+              <li class="nav-item active">
+                <a class="nav-link" href="/"><span class="nav-color activ">Home</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/solvers"><span class="nav-color">Certified-Detectives</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about"><span class="nav-color">About</span></a>
+              </li>
+
+            </ul>
+          </div>
+        </nav>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="content">
+
+  <p>Phew! That was a tough one! But you got it! Here's a new clue you found! Get at least 10 points in this simon game to get the next clue! </p>
+  <div class="container">
+ <div id="head">
+   <h1 class="lvl">Press Any Key To Start or click -><button class="button"> > </button></h1>
+ </div>
+</div>
+
+
+<div class="container cnt">
+ <div class="row">
+ <div class="col-md-6 txt" style="text-align:center;" style="margin-bottom:10px;">
+   <img src="glass.png"  id="green" class="imgg green img img-fluid">
+
+ </div>
+
+   <!-- </div> -->
+<div class="col-md-6 txt" style="margin-bottom:10px;">
+ <img src="gun.png"  id="red" class="imgg red  img img-fluid">
+
+</div>
+
+   <!-- </div> -->
+ </div>
+
+ <div class="row">
+<div class="col-md-6 txt" style="margin-bottom:10px;">
+ <img src="hat.png"  id="yellow" class="imgg yellow  img img-fluid">
+
+</div>
+<div class="col-md-6 txt" style="margin-bottom:10px;">
+ <img src="torch.png"  id="blue" class="imgg blue  img img-fluid">
+
+</div>
+
+ </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+  var i=0;
+  var level=0;
+  var buttonColors = ["red", "blue", "green", "yellow"];
+  var gamePattern=[];
+  var userClickedPattern=[];
+
+
+  $(".imgg").click(function() {
+
+    var userChosenColour = $(this).attr("id");
+    userClickedPattern.push(userChosenColour);
+
+    //1. In the same way we played sound in nextSequence() , when a user clicks on a button, the corresponding sound should be played.
+    animatePress(userChosenColour);
+    playSound(userChosenColour);
+    checkAnswer(userClickedPattern.length-1);
+  });
+  $(document).keypress(function(){
+    if(i==0){
+      i=1;
+      $(".lvl").html("Level "+level);
+      nextSequence();
+    }
+  }
+  );
+  function nextSequence(){
+    userClickedPattern = [];
+    if(level==10){
+      window.location.href="/round3/<%=id%>";
+      return;
+    }
+    level=level+1;
+    $(".lvl").html("Level "+level);
+    var randomNumber=Math.floor(Math.random()*4);
+    var randomChosenColour=buttonColors[randomNumber];
+    gamePattern.push(randomChosenColour);
+    $("#"+randomChosenColour).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+    playSound(randomChosenColour);
+  }
+  function playSound(name){
+    var audio = new Audio("sounds/" + name + ".mp3");
+    audio.play();
+  }
+  function animatePress(currentColor){
+    $("#"+currentColor).addClass("pressed");
+    setTimeout(function(){
+      $("#"+currentColor).removeClass("pressed");
+    },100);
+  }
+
+  function checkAnswer(currentLevel){
+    if(gamePattern[currentLevel]===userClickedPattern[currentLevel]){
+      console.log("Success");
+
+    if(gamePattern.length===userClickedPattern.length){
+      setTimeout(function(){
+        nextSequence();
+      },1000);
+    }
+  }
+  else{
+
+    $("body").addClass("game-over");
+    setTimeout(function(){
+      $("body").removeClass("game-over");
+    },200);
+    console.log("Wrong!");
+    $(".lvl").html("Game Over, Press Any Key to Restart");
+    startOver();
+  }
+  }
+
+  function startOver(){
+    level=0;
+    i=0;
+    gamePattern=[]
+  }
+
+
+</script>
+</html>
